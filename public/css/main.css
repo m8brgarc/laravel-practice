@@ -1,0 +1,84 @@
+.stripe {
+  padding: 1rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+.stripe-sm {
+  padding: 2rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+.stripe-md {
+  padding: 4rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+.stripe-lg {
+  padding: 6rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+.stripe-xl {
+  padding: 8rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+.stripe-xxl {
+  padding: 10rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+.inner {
+  padding: 1rem;
+}
+.inner-sm {
+  padding: 2rem;
+}
+.inner-md {
+  padding: 4rem;
+}
+.inner-lg {
+  padding: 6rem;
+}
+.inner-xl {
+  padding: 8rem;
+}
+.inner-xxl {
+  padding: 10rem;
+}
+.block-sep {
+  margin-bottom: 1rem;
+}
+.block-sep-sm {
+  margin-bottom: 2rem;
+}
+.block-sep-md {
+  margin-bottom: 4rem;
+}
+.block-sep-lg {
+  margin-bottom: 6rem;
+}
+body {
+  padding-top: 60px;
+}
+.hero h1 span {
+  background-color: #0000ff;
+  color: #ffffff;
+}
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.custom-btn-group a {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.custom-btn-group button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+footer {
+  background-color: #222222;
+  color: #ffffff;
+}

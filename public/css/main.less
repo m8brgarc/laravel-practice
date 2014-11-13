@@ -1,0 +1,120 @@
+// Variables
+@base-px: 16;
+
+// Mixins
+.rem(@px) {
+  @return: (@px/@base-px);
+}
+
+.margin(@px) {
+  .rem(@px);
+  margin: unit(@return, rem);
+}
+.margin-right(@px) {
+  .rem(@px);
+  margin-right: unit(@return, rem);
+}
+.margin-left(@px) {
+  .rem(@px);
+  margin-left: unit(@return, rem);
+}
+.margin-top(@px) {
+  .rem(@px);
+  margin-top: unit(@return, rem);
+}
+.margin-bottom(@px) {
+  .rem(@px);
+  margin-bottom: unit(@return, rem);
+}
+
+.padding(@px) {
+  .rem(@px);
+  padding: unit(@return, rem);
+}
+.padding-right(@px) {
+  .rem(@px);
+  padding-right: unit(@return, rem);
+}
+.padding-left(@px) {
+  .rem(@px);
+  padding-left: unit(@return, rem);
+}
+.padding-top(@px) {
+  .rem(@px);
+  padding-top: unit(@return, rem);
+}
+.padding-bottom(@px) {
+  .rem(@px);
+  padding-bottom: unit(@return, rem);
+}
+
+//  Spacing Classes
+@unit-type: 0rem;
+
+@stripe: @base-px;
+@stripe-sm: (@base-px * 2);
+@stripe-md: (@base-px * 4);
+@stripe-lg: (@base-px * 6);
+@stripe-xl: (@base-px * 8);
+@stripe-xxl: (@base-px * 10);
+.stripe { .padding(@stripe); padding-left: 0; padding-right: 0; }
+.stripe-sm {.padding(@stripe-sm); padding-left: 0; padding-right: 0; }
+.stripe-md {.padding(@stripe-md); padding-left: 0; padding-right: 0; }
+.stripe-lg {.padding(@stripe-lg); padding-left: 0; padding-right: 0; }
+.stripe-xl {.padding(@stripe-xl); padding-left: 0; padding-right: 0; }
+.stripe-xxl {.padding(@stripe-xxl); padding-left: 0; padding-right: 0; }
+
+@inner: @base-px;
+@inner-sm: (@base-px * 2);
+@inner-md: (@base-px * 4);
+@inner-lg: (@base-px * 6);
+@inner-xl: (@base-px * 8);
+@inner-xxl: (@base-px * 10);
+.inner { .padding(@inner); }
+.inner-sm {.padding(@inner-sm); }
+.inner-md {.padding(@inner-md); }
+.inner-lg {.padding(@inner-lg); }
+.inner-xl {.padding(@inner-xl); }
+.inner-xxl {.padding(@inner-xxl); }
+
+@block-sep: @base-px;
+@block-sep-sm: (@base-px * 2);
+@block-sep-md: (@base-px * 4);
+@block-sep-lg: (@base-px * 6);
+.block-sep { .margin-bottom(@block-sep); }
+.block-sep-sm { .margin-bottom(@block-sep-sm); }
+.block-sep-md { .margin-bottom(@block-sep-md); }
+.block-sep-lg { .margin-bottom(@block-sep-lg); }
+
+body {
+  padding-top: 60px;
+}
+
+.hero {
+  h1 span {
+    background-color: #0000ff;
+    color: #ffffff;
+  }
+}
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.custom-btn-group {
+  a {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+footer {
+  background-color: #222222;
+  color: #ffffff;
+}
