@@ -2,62 +2,22 @@
 
 class BlogCommentController extends \BaseController {
 
-    private $data = array();
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
-
-
 	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store($blogId)
 	{
-		//
-	}
-
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-    {
-		$this->data['title'] = 'Comments for';
-	}
-
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
+		$comment = new Comment;
+        $validator = Comment::validate(Input::all());
+        if($validator->fails()) {
+            return Redirect::back()->withErrors($validator)->withInput();
+        } else {
+            $comment->fill(Input::all());
+            $comment->blog()->associate(Blog::find($blogId))->save();
+            return Redirect::route('blog.show', array('id' => $blogId))->with('msg', 'Comment Posted');
+        }
 	}
 
 
@@ -67,9 +27,10 @@ class BlogCommentController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($blogId, $commentId)
 	{
-		//
+        Comment::destroy($commentId);
+        return Redirect::back()->with('msg', 'Comment Deleted');
 	}
 
 

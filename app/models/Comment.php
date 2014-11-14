@@ -12,14 +12,14 @@ class Comment extends Eloquent {
 	 *
 	 * @var string
 	 */
-	protected $table = 'comments', $fillable = array('author', 'comment_text', 'rating');
+	protected $table = 'comments', $fillable = array('author', 'comment_text', 'rating', 'blog_id');
 
     public function blog()
     {
         return $this->belongsTo('Blog');
     }
 
-    public function validate($input) {
+    public static function validate($input) {
         $rules = array(
             'author' => 'required|min:4|max:50',
             'comment_text' => 'required|max:3000',

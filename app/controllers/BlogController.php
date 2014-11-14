@@ -14,6 +14,7 @@ class BlogController extends \BaseController {
         if(Input::has('page')) {
             Session::put('page', Input::get('page'));
         }
+        $this->data['now'] = Carbon::now();
         $this->data['title'] = 'Blog - All Posts';
         $this->data['blogs'] = Blog::orderBy('updated_at', 'DESC')->paginate(15);
         $this->data['msg'] = Session::get('msg');
@@ -63,9 +64,10 @@ class BlogController extends \BaseController {
 	 */
 	public function show($id)
 	{
+        $this->data['now'] = Carbon::now();
         $this->data['page'] = Session::get('page', 1);
         $this->data['blog'] = Blog::find($id);
-        $this->data['comments'] = $this->data['blog']->comments()->get()->sortBy('updated_at')->take(6);
+        $this->data['comments'] = $this->data['blog']->comments()->orderBy('created_at', 'desc')->paginate(4);
         $this->data['title'] = 'Blog Post - ' . $this->data['blog']->title;
         $this->data['msg'] = Session::get('msg');
 		return View::make('blog.show', $this->data);

@@ -24,6 +24,11 @@
                 <h3 class="text-center">Comments</h3>
                 <div class="row">
                     @foreach($comments as $comment)
+                        <div class="col-xs-12 text-right">
+                            {{ Form::open(array('route' => array('blog.comment.destroy', $blog->id, $comment->id), 'style' => 'display:inline;', 'method' => 'delete')) }}
+                                <button type="submit" class="alert-danger" style="padding:0;"><span class="glyphicon glyphicon-remove"></span></button>
+                            {{ Form::close() }}
+                        </div>
                         <div class="col-xs-6">
                             <h5>Author - {{ $comment->author }}</h5>
                         </div>
@@ -48,8 +53,19 @@
                             <h4>No Comments Created</h4>
                             <h5>Be the first!</h5>
                         </div>
+                    @else
+                        <div class="col-xs-12 text-center">
+                            {{ $comments->links() }}
+                        </div>
                     @endif
                 </div>
+                <hr/>
+                <div class="row">
+                    <div class="col-xs-12 text-right">
+                        <a href="#" class="new-comment" {{ ($errors->all()) ? 'style="display:none;"' : '' }}>New Comment</a>
+                    </div>
+                </div>
+                @include('blog.comment._form')
             </div>
         </div>
     </div>

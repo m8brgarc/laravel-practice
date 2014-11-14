@@ -78,6 +78,9 @@ body {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
+.comment-form {
+  display: none;
+}
 footer {
   background-color: #222222;
   color: #ffffff;
